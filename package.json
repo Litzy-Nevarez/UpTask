@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp"
+    "start": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "gulp-webp": "^4.0.1",
+    "postcss": "^8.4.38",
     "sass": "^1.41.1",
     "terser": "^5.3.8"
   }
