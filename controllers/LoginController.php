@@ -31,28 +31,43 @@
             ]);
         }
 
-        public static function olvide(){
-            echo "Desde olvide";
+        public static function olvide(Router $router){
+            //echo "Desde olvide";
 
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                
+            }
+
+            //Render a la vista
+            $router->render('auth/olvide', [
+                'titulo' => 'Cambiar Contraseña'
+            ]);
+        }
+
+        public static function restablecer(Router $router){
+            //echo "Desde restablecer";
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             }
+            //Render a la vista
+            $router->render('auth/restablecer', [
+                'titulo' => 'Reestablecer Password'
+            ]);
         }
 
-        public static function restablecer(){
-            echo "Desde restablecer";
-
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
-            }
+        public static function mensaje(Router $router){
+            //echo "Desde mensaje";
+            //Render a la vista
+            $router->render('auth/mensaje', [
+                'titulo' => 'Cuenta Creada Exitosamente'
+            ]);
         }
 
-        public static function mensaje(){
-            echo "Desde mensaje";
-        }
-
-        public static function confirmar(){
-            echo "Desde confirmar";
+        public static function confirmar(Router $router){
+            //echo "Desde confirmar";
+            $router->render('auth/confirmar', [
+                'titulo' => 'Confirmar Cuenta'
+            ]);
         }
     }
 ?>
