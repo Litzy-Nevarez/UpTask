@@ -27,7 +27,7 @@
                             $_SESSION['email'] = $usuario->email;
                             $_SESSION['login'] = true;
 
-                            header('Location: /proyectos');
+                            header('Location: /dashboard');
                             //debuguear('correcto');
                         }else{
                             Usuario::setAlerta('error', 'Password Incorrecto');
@@ -46,7 +46,10 @@
         }
 
         public static function logout(){
-            echo "Desde Logout";
+            //echo "Desde Logout";
+            session_start();
+            $_SESSION = [];
+            header('Location: /');
         }
 
         public static function crear(Router $router){
