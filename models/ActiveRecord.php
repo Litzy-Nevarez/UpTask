@@ -79,21 +79,30 @@ class ActiveRecord {
     public function crear() {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
-
+    
         // Insertar en la base de datos
-        $query = " INSERT INTO " . static::$tabla . " ( ";
-        $query .= join(', ', array_keys($atributos));
-        $query .= " ) VALUES (' "; 
-        $query .= join("', '", array_values($atributos));
-        $query .= " ') ";
-
+        $query = "INSERT INTO " . static::$tabla . " (";
+        $query .= implode(', ', array_keys($atributos));
+        $query .= ") VALUES ('";
+        $query .= implode("', '", array_values($atributos));
+        $query .= "')";
+    
+        // Depuración de la consulta
+        echo $query;
+    
         // Resultado de la consulta
         $resultado = self::$db->query($query);
-
-        return [
-           'resultado' =>  $resultado,
-           'id' => self::$db->insert_id
-        ];
+    
+        if ($resultado) {
+            return [
+               'resultado' => $resultado,
+               'id' => self::$db->insert_id
+            ];
+        } else {
+            // Manejar el error
+            echo "Error al ejecutar la consulta: " . self::$db->error;
+            return false;
+        }
     }
 
     public function actualizar() {
