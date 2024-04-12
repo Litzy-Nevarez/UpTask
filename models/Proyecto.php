@@ -5,7 +5,7 @@
 
     class Proyecto extends ActiveRecord{
         protected static $tabla = 'proyectos';
-        protected static $columnas = ['id', 'proyecto', 'url', 'propietarioId'];
+        protected static $columnasDB = ['id', 'proyecto', 'url', 'propietarioId'];
 
         public function __construct($args = []){
             $this->id = $args['id'] ?? null;
